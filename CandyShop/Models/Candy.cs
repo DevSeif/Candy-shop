@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace CandyShop.Models
 {
@@ -23,3 +23,4 @@ namespace CandyShop.Models
 
     }
 }
+

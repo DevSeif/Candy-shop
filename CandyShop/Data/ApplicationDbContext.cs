@@ -1,4 +1,4 @@
-﻿using CandyShop.Models;
+using CandyShop.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,3 +19,4 @@ namespace CandyShop.Data
 
     }
 }
+
