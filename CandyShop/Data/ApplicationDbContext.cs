@@ -1,7 +1,6 @@
-﻿using CandyShop.Models;
+using CandyShop.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace CandyShop.Data
 {
@@ -11,12 +10,13 @@ namespace CandyShop.Data
         {
 
         }
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext>options)
             : base(options)
         {
-        }
 
+        }
         public DbSet<Candy> Candies { get; set; }
 
     }
 }
+

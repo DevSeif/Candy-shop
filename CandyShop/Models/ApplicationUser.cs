@@ -1,13 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace CandyShop.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        //[Key]
-        //public int PersonId { get; set; }
-        public string Name { get; set; }
-        //public List<Candy> Candies { get; set; }
+        //public string FirstName { get; set; } = null!;
+        //public string LastName { get; set; } = null!;
+        public Customer Customer { get; set; }
     }
 }
