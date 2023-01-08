@@ -76,7 +76,6 @@ namespace CandyShop.Areas.Identity.Pages.Account
             [Display(Name = "Name")]
             public string Name { get; set; }
 
-
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.

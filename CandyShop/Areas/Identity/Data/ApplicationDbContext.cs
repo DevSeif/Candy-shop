@@ -1,20 +1,29 @@
-﻿using CandyShop.Areas.Identity.Data;
-using Microsoft.AspNetCore.Identity;
+﻿using CandyShop.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
 
-namespace CandyShop.Areas.Identity.Data;
-
-public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+namespace CandyShop.Areas.Identity.Data
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options)
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-    }
+        
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<ApplicationUser> AppUser { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Candy> Candies { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder builder)
-    {
-        base.OnModelCreating(builder);
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+             : base(options)
+        {
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+        }
 
     }
 }
