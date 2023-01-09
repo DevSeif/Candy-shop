@@ -7,11 +7,11 @@ namespace CandyShop.Models
         [Key]
         public int CandyId { get; set; }
 
-        public string CandyName { get; set; } = null!;
+        public string CandyName { get; set; }
 
-        public string CandyDescription { get; set; } = null!;
+        public string CandyDescription { get; set; } 
 
-        public Category CandyCategory { get; set; } = null!;
+        public Category CandyCategory { get; set; } 
 
         public int CandyCategoryId { get; set; }
 

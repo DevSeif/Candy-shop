@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CandyShop",
+    "\\CandyShop\\Models"
   ],
-  "SelectedNode": "\\CandyShop.sln",
+  "SelectedNode": "\\CandyShop\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
