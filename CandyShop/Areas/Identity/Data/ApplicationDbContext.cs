@@ -108,6 +108,17 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             RoleId = userRoleID,
             UserId = userId,
         });
+
+        modelbuilder.Entity<Candy>().HasData(new Candy
+        {
+            CandyId = 1,
+            CandyName = "Coffee Rio",
+            CandyCategoryId = 1,
+            CandyDescription = "Caramels are made by cooking sugar and water together",
+            CandyPrice = 5,
+            CandyQuantity = 50
+        });
+
     }
 
 }
