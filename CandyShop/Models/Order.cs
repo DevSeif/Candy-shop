@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http.Features;
+﻿using CandyShop.Areas.Identity.Data;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace CandyShop.Models
 {
@@ -7,7 +8,7 @@ namespace CandyShop.Models
         public int OrderId { get; set; }
         public DateTime OrderDate { get; set; }
         public decimal TotalAmount { get; set; }
-        public Customer Customer { get; set; }
+        public ApplicationUser Customer { get; set; }
         public List<OrderItem> Items { get; set; }
 
         public Order()
