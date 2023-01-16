@@ -109,6 +109,8 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             UserId = userId,
         });
 
+        //Candy
+
         modelbuilder.Entity<Candy>().HasData(new Candy
         {
             CandyId = 1,
@@ -118,7 +120,73 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             CandyPrice = 5,
             CandyQuantity = 50
         });
+        modelbuilder.Entity<Candy>().HasData(new Candy
+        {
+            CandyId = 2,
+            CandyName = "M&Ms",
+            CandyCategoryId = 2,
+            CandyDescription = "Tastey colorful chocolate",
+            CandyPrice = 15,
+            CandyQuantity = 40
+        });
+        modelbuilder.Entity<Candy>().HasData(new Candy
+        {
+            CandyId = 3,
+            CandyName = "Gummi Cheries",
+            CandyCategoryId = 3,
+            CandyDescription = "Gummies are gelatin based chewy candies",
+            CandyPrice = 18,
+            CandyQuantity = 55
+        });
+        modelbuilder.Entity<Candy>().HasData(new Candy
+        {
+            CandyId = 4,
+            CandyName = "Red Vines",
+            CandyCategoryId = 4,
+            CandyDescription = "Licorice is a semi-soft candy",
+            CandyPrice = 20,
+            CandyQuantity = 50
+        });
+        //Category
+        modelbuilder.Entity<Category>().HasData(new Category
+        {
+            CategoryId = 1,
+            Name = "Caramels",
+           CandyId = 1
 
+        });
+        modelbuilder.Entity<Category>().HasData(new Category
+        {
+            CategoryId = 2,
+            Name = "Chocolate",
+            CandyId = 2
+
+        });
+        modelbuilder.Entity<Category>().HasData(new Category
+        {
+            CategoryId = 3,
+            Name = "Gummies",
+            CandyId = 3
+
+        });
+        modelbuilder.Entity<Category>().HasData(new Category
+        {
+            CategoryId = 4,
+            Name = "Licorice",
+            CandyId = 4
+
+        });
+        //cart
+        modelbuilder.Entity<Cart>().HasData(new Cart { CartId = 1 });
+        modelbuilder.Entity<Cart>().HasData(new Cart { CartId = 2 });
+
+        //Order
+        modelbuilder.Entity<Order>().HasData(new Order { 
+            OrderId = 1,
+            OrderDate = DateTime.Now,
+            
+        });
+    
     }
 
 }

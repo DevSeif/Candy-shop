@@ -11,7 +11,7 @@ namespace CandyShop.Models
 
         public string CandyDescription { get; set; } 
 
-        public Category CandyCategory { get; set; } 
+      //  public Category CandyCategory { get; set; } 
 
         public int CandyCategoryId { get; set; }
 
