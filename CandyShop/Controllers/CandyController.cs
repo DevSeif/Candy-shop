@@ -33,5 +33,11 @@ namespace CandyShop.Controllers
         {
             return _context.Categories.ToList();
         }
+
+        [HttpGet("users")]
+        public List<ApplicationUser> GetUsers()
+        {
+            return _context.Customers.ToList();
+        }
     }
 }

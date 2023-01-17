@@ -19,6 +19,8 @@ namespace CandyShop.Models
 
         public int CandyQuantity { get; set; }
 
+        public string CandyImage { get; set; }
+
         //public string Image { get; set; }
 
     }
