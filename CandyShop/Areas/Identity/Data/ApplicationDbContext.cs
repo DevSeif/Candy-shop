@@ -79,46 +79,223 @@ namespace CandyShop.Areas.Identity.Data
             );
 
             modelBuilder.Entity<Candy>().HasData(
-                new Candy
-                {
-                    CandyId = 1,
-                    CandyName = "Coffee Rio",
-                    CandyCategoryId = 1,
-                    CandyDescription = "Caramels are made by cooking sugar and water together",
-                    CandyPrice = 5,
-                    CandyQuantity = 50
-                },
-
+               new Candy
+               {
+                   CandyId = 1,
+                   CandyName = "Coffee Rio",
+                   CandyCategoryId = 1,
+                   CandyDescription = "Caramels are made by cooking sugar and water together",
+                   CandyPrice = 5,
+                   CandyQuantity = 50
+               },
                 new Candy
                 {
                     CandyId = 2,
+                    CandyName = "Caramel Crunch",
+                    CandyCategoryId = 1,
+                    CandyDescription = "A tasty Caramel and sugary Crunch",
+                    CandyPrice = 15,
+                    CandyQuantity = 50
+                },
+                new Candy
+                {
+                    CandyId = 3,
+                    CandyName = "Vanilla Caramel",
+                    CandyCategoryId = 1,
+                    CandyDescription = "The Vanila taste with the sweet of caramel",
+                    CandyPrice = 10,
+                    CandyQuantity = 50
+                },
+                new Candy
+                {
+                    CandyId = 4,
+                    CandyName = "Caramel Squares",
+                    CandyCategoryId = 1,
+                    CandyDescription = "The Vanila taste with the sweet of caramel",
+                    CandyPrice = 10,
+                    CandyQuantity = 50
+                },
+                new Candy
+                {
+                    CandyId = 5,
+                    CandyName = "Nut Caramel",
+                    CandyCategoryId = 1,
+                    CandyDescription = "Combination of nuts and the sweet of caramel",
+                    CandyPrice = 15,
+                    CandyQuantity = 40
+                },
+                new Candy
+                {
+                    CandyId = 6,
                     CandyName = "M&Ms",
                     CandyCategoryId = 2,
                     CandyDescription = "Tastey colorful chocolate",
                     CandyPrice = 15,
                     CandyQuantity = 40
                 },
-
+                 new Candy
+                 {
+                     CandyId = 7,
+                     CandyName = "Kit Kat",
+                     CandyCategoryId = 2,
+                     CandyDescription = "A mini full of flavor chocolate",
+                     CandyPrice = 11,
+                     CandyQuantity = 45
+                 },
                 new Candy
                 {
-                    CandyId = 3,
+                    CandyId = 8,
+                    CandyName = "Almond Joy",
+                    CandyCategoryId = 2,
+                    CandyDescription = "Combination of Almond and the sweet of chocolate",
+                    CandyPrice = 16,
+                    CandyQuantity = 40
+                },
+                new Candy
+                {
+                    CandyId = 9,
+                    CandyName = "Chocolate Cherries",
+                    CandyCategoryId = 2,
+                    CandyDescription = "Combination of Cherries flavor and the sweet of chocolate",
+                    CandyPrice = 15,
+                    CandyQuantity = 50
+                },
+                new Candy
+                {
+                    CandyId = 10,
+                    CandyName = "Krackle",
+                    CandyCategoryId = 2,
+                    CandyDescription = "Biscute Coverd of chocolate",
+                    CandyPrice = 11,
+                    CandyQuantity = 50
+                },
+                new Candy
+                {
+                    CandyId = 11,
+                    CandyName = "Snickers",
+                    CandyCategoryId = 2,
+                    CandyDescription = "Combination of nuts and the sweet of chocolate",
+                    CandyPrice = 15,
+                    CandyQuantity = 40
+                },
+                new Candy
+                {
+                    CandyId = 12,
                     CandyName = "Gummi Cheries",
                     CandyCategoryId = 3,
                     CandyDescription = "Gummies are gelatin based chewy candies",
                     CandyPrice = 18,
                     CandyQuantity = 55
                 },
+                 new Candy
+                 {
+                     CandyId = 13,
+                     CandyName = "Gummi worms",
+                     CandyCategoryId = 3,
+                     CandyDescription = "Chewy candies With different flavors",
+                     CandyPrice = 5,
+                     CandyQuantity = 60
+                 },
 
+                 new Candy
+                 {
+                     CandyId = 14,
+                     CandyName = "Gummi cola bottles",
+                     CandyCategoryId = 3,
+                     CandyDescription = "Chewy candies With cola flavor",
+                     CandyPrice = 5,
+                     CandyQuantity = 60
+                 },
                 new Candy
                 {
-                    CandyId = 4,
+                    CandyId = 15,
+                    CandyName = "Gummi strawberry",
+                    CandyCategoryId = 3,
+                    CandyDescription = "Chewy candies With stawberry flavor",
+                    CandyPrice = 5,
+                    CandyQuantity = 60
+                },
+                new Candy
+                {
+                    CandyId = 16,
+                    CandyName = "Gummi banana",
+                    CandyCategoryId = 3,
+                    CandyDescription = "Chewy candies With banana flavor",
+                    CandyPrice = 5,
+                    CandyQuantity = 60
+                },
+                new Candy
+                {
+                    CandyId = 17,
                     CandyName = "Red Vines",
                     CandyCategoryId = 4,
                     CandyDescription = "Licorice is a semi-soft candy",
                     CandyPrice = 20,
                     CandyQuantity = 50
-                }
-
+                },
+                 new Candy
+                 {
+                     CandyId = 18,
+                     CandyName = "Twizzler",
+                     CandyCategoryId = 4,
+                     CandyDescription = "Licorice is a semi-soft candy with cherry flavor",
+                     CandyPrice = 20,
+                     CandyQuantity = 50
+                 },
+                  new Candy
+                  {
+                      CandyId = 19,
+                      CandyName = "Chupa Chups",
+                      CandyCategoryId = 4,
+                      CandyDescription = "A hard sweet candy",
+                      CandyPrice = 15,
+                      CandyQuantity = 40
+                  },
+                   new Candy
+                   {
+                       CandyId = 20,
+                       CandyName = "Sour Punch",
+                       CandyCategoryId = 4,
+                       CandyDescription = "A sour candy",
+                       CandyPrice = 13,
+                       CandyQuantity = 30
+                   },
+                  new Candy
+                  {
+                      CandyId = 21,
+                      CandyName = "Warheads",
+                      CandyCategoryId = 4,
+                      CandyDescription = "A sour candy",
+                      CandyPrice = 15,
+                      CandyQuantity = 40
+                  },
+                   new Candy
+                   {
+                       CandyId = 22,
+                       CandyName = "Abba-Zaba",
+                       CandyCategoryId = 4,
+                       CandyDescription = "Chewy sweet candy",
+                       CandyPrice = 10,
+                       CandyQuantity = 70
+                   },
+                    new Candy
+                    {
+                        CandyId = 23,
+                        CandyName = "Sky Bar",
+                        CandyCategoryId = 4,
+                        CandyDescription = "Chewy sweet candy",
+                        CandyPrice = 5,
+                        CandyQuantity = 60
+                    },
+                     new Candy
+                     {
+                         CandyId = 24,
+                         CandyName = "Peach Blossoms",
+                         CandyCategoryId = 4,
+                         CandyDescription = "Chewy with peach flavor candy",
+                         CandyPrice = 10,
+                         CandyQuantity = 50
+                     }
 
                 );
 
@@ -147,7 +324,7 @@ namespace CandyShop.Areas.Identity.Data
                  new Category
                  {
                      CategoryId = 4,
-                     CategoryName = "Licorice",
+                     CategoryName = "Combination",
                  }
 
                 );

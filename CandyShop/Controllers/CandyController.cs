@@ -1,7 +1,9 @@
 ﻿using CandyShop.Areas.Identity.Data;
 using CandyShop.Models;
+using CandyShop.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CandyShop.Controllers
 {
@@ -17,9 +19,13 @@ namespace CandyShop.Controllers
         }
 
         [HttpGet]
-        public List<Candy> GetCandies()
+        public CandiesAndCategoriesVM GetCandiesAndCategories()
         {
-            return _context.Candies.ToList();
+            var vm = new CandiesAndCategoriesVM();
+            vm.Candies = _context.Candies.ToList();
+            vm.Categories = _context.Categories.Include(c => c.Candies).ToList();
+
+            return vm;
         }
 
         [HttpGet("categories")]
