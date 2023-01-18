@@ -23,7 +23,7 @@ namespace CandyShop.Controllers
         {
             var vm = new CandiesAndCategoriesVM();
             vm.Candies = _context.Candies.ToList();
-            vm.Categories = _context.Categories.Include(c => c.Candies).ToList();
+            vm.Categories = _context.Categories.ToList();
 
             return vm;
         }
