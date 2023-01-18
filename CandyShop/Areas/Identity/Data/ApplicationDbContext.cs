@@ -37,6 +37,7 @@ namespace CandyShop.Areas.Identity.Data
            modelBuilder.Entity<Cart>().HasKey(c => c.CartId);
 
             modelBuilder.Entity<ApplicationUser>().HasOne(c => c.Cart).WithOne(u => u.Customer).HasForeignKey<Cart>(c => c.CustomerCartId);
+            modelBuilder.Entity<ItemOrder>().HasOne(c => c.Cart).WithMany(u => u.ItemOrders).HasForeignKey(c => c.CartId);
             modelBuilder.Entity<Candy>().HasOne(c => c.Category).WithMany(c => c.Candies).HasForeignKey(x => x.CandyCategoryId);
 
 

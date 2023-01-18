@@ -20,6 +20,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using CandyShop.Models;
 
 namespace CandyShop.Areas.Identity.Pages.Account
 {
@@ -134,8 +135,9 @@ namespace CandyShop.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     await _userManager.AddToRoleAsync(user, "User");
-                    //var cus = _context.Customers.Add(user);
-                    //_context.SaveChanges();
+                    Cart cart = new Cart { CustomerCartId = user.Id, TotalPrice = 0};
+                    _context.Carts.Add(cart);
+                    _context.SaveChanges();
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
