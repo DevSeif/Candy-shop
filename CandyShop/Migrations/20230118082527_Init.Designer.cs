@@ -4,6 +4,7 @@ using CandyShop.Areas.Identity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CandyShop.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230118082527_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,11 +120,11 @@ namespace CandyShop.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "cace7bc4-026f-403c-b63e-909359bf7ddc",
+                            Id = "8723baaf-8f7c-4c90-8f4d-391030b6ba78",
                             AccessFailedCount = 0,
                             Address = "Adminsgatan 8A",
                             City = "Göteborg",
-                            ConcurrencyStamp = "5f1cf9f6-62fe-45ef-abce-161150afa1e4",
+                            ConcurrencyStamp = "3da466cb-a12f-4060-abf1-0c0e43c5877f",
                             Country = "Sweden",
                             CreditCardNumber = "00000 00000 00000",
                             CustomerFName = "Admin",
@@ -132,21 +134,21 @@ namespace CandyShop.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL:COM",
                             NormalizedUserName = "admin@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIVul2i5/PLvhZvbhNx4ijumA8OazR7liVG8g2ey3FsBU5JOKP4h7GdDOCBtx/MAmQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPDn0/w3IYrL1Bv9+cbSorqoMYu6mSyot5SePO6DOeQtPgwZqfUo9IlIvfgsii2Arw==",
                             PhoneNumber = "0737555555",
                             PhoneNumberConfirmed = false,
                             PostalCode = "411777",
-                            SecurityStamp = "e27b1dfe-cd09-44b1-9530-e980b8272487",
+                            SecurityStamp = "4894a37d-bae5-43d9-8c56-87bf2593075f",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         },
                         new
                         {
-                            Id = "b1625925-8997-4a58-bc1d-863843027c26",
+                            Id = "32f4de69-d6bf-45f5-8e2a-86f1deb05e87",
                             AccessFailedCount = 0,
                             Address = "Usersgatan 8A",
                             City = "Göteborg",
-                            ConcurrencyStamp = "83b90a49-0484-4ba1-b1ae-7ddcc604d280",
+                            ConcurrencyStamp = "49e67245-a320-4568-a219-2fc1120ab2f9",
                             Country = "Sweden",
                             CreditCardNumber = "00000 00000 00000",
                             CustomerFName = "User",
@@ -156,11 +158,11 @@ namespace CandyShop.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@GMAIL:COM",
                             NormalizedUserName = "user@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAECthO66+lc5QavMqMjWrAssY1Ci0FFpxlMdSkbT5gFFteUz5B+Qqz3U1OtD3H2EbjQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFHp0AdmuUKur8lluVMsJ7hlyRivHDbp7jp+lPxouVHq1G5zLjIwYAv2iXmQsA6NLA==",
                             PhoneNumber = "0737555555",
                             PhoneNumberConfirmed = false,
                             PostalCode = "411777",
-                            SecurityStamp = "269f1d94-abfc-4fdb-9f08-7b1c31d11f17",
+                            SecurityStamp = "d020e442-4129-46f2-8d72-1c1a32f4b79b",
                             TwoFactorEnabled = false,
                             UserName = "user@gmail.com"
                         });
@@ -470,13 +472,13 @@ namespace CandyShop.Migrations
                         new
                         {
                             CartId = 1,
-                            CustomerCartId = "cace7bc4-026f-403c-b63e-909359bf7ddc",
+                            CustomerCartId = "8723baaf-8f7c-4c90-8f4d-391030b6ba78",
                             TotalPrice = 100
                         },
                         new
                         {
                             CartId = 2,
-                            CustomerCartId = "b1625925-8997-4a58-bc1d-863843027c26",
+                            CustomerCartId = "32f4de69-d6bf-45f5-8e2a-86f1deb05e87",
                             TotalPrice = 150
                         });
                 });
@@ -543,7 +545,7 @@ namespace CandyShop.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CartId")
+                    b.Property<int?>("CartId")
                         .HasColumnType("int");
 
                     b.Property<int>("Price")
@@ -557,49 +559,6 @@ namespace CandyShop.Migrations
                     b.HasIndex("CartId");
 
                     b.ToTable("ItemOrders");
-                });
-
-            modelBuilder.Entity("CandyShop.Models.Receipt", b =>
-                {
-                    b.Property<int>("ReceiptId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReceiptId"), 1L, 1);
-
-                    b.Property<string>("CustomerId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("ReceiptDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("TotalCost")
-                        .HasColumnType("float");
-
-                    b.HasKey("ReceiptId");
-
-                    b.HasIndex("CustomerId");
-
-                    b.ToTable("Receipts");
-                });
-
-            modelBuilder.Entity("CandyShop.Models.ReceiptItem", b =>
-                {
-                    b.Property<string>("CandyName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.Property<int>("ReceiptId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CandyName");
-
-                    b.HasIndex("ReceiptId");
-
-                    b.ToTable("ReceiptItem");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -631,15 +590,15 @@ namespace CandyShop.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a12e4862-9b26-4cd1-855e-8b07eb2ab1cb",
-                            ConcurrencyStamp = "a221f74b-3154-4d81-959e-256765dd6fcc",
+                            Id = "fec23b7b-213c-460b-91b2-de00859d7d4c",
+                            ConcurrencyStamp = "449cb28c-8f20-427e-84a7-1a7dbc904a21",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "f67472a9-4702-4b7e-a535-761740987ba0",
-                            ConcurrencyStamp = "375213ce-b63d-4ba6-b6a7-3120794aa47f",
+                            Id = "bdd546f2-0671-4a0f-bcd2-5706f3281667",
+                            ConcurrencyStamp = "f6769013-6f1d-4445-b90d-88bbc2f5951a",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -734,13 +693,13 @@ namespace CandyShop.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "cace7bc4-026f-403c-b63e-909359bf7ddc",
-                            RoleId = "a12e4862-9b26-4cd1-855e-8b07eb2ab1cb"
+                            UserId = "8723baaf-8f7c-4c90-8f4d-391030b6ba78",
+                            RoleId = "fec23b7b-213c-460b-91b2-de00859d7d4c"
                         },
                         new
                         {
-                            UserId = "b1625925-8997-4a58-bc1d-863843027c26",
-                            RoleId = "f67472a9-4702-4b7e-a535-761740987ba0"
+                            UserId = "32f4de69-d6bf-45f5-8e2a-86f1deb05e87",
+                            RoleId = "bdd546f2-0671-4a0f-bcd2-5706f3281667"
                         });
                 });
 
@@ -787,35 +746,9 @@ namespace CandyShop.Migrations
 
             modelBuilder.Entity("CandyShop.Models.ItemOrder", b =>
                 {
-                    b.HasOne("CandyShop.Models.Cart", "Cart")
+                    b.HasOne("CandyShop.Models.Cart", null)
                         .WithMany("ItemOrders")
-                        .HasForeignKey("CartId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cart");
-                });
-
-            modelBuilder.Entity("CandyShop.Models.Receipt", b =>
-                {
-                    b.HasOne("CandyShop.Areas.Identity.Data.ApplicationUser", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Customer");
-                });
-
-            modelBuilder.Entity("CandyShop.Models.ReceiptItem", b =>
-                {
-                    b.HasOne("CandyShop.Models.Receipt", "Receipt")
-                        .WithMany("ReceiptItems")
-                        .HasForeignKey("ReceiptId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Receipt");
+                        .HasForeignKey("CartId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -883,11 +816,6 @@ namespace CandyShop.Migrations
             modelBuilder.Entity("CandyShop.Models.Category", b =>
                 {
                     b.Navigation("Candies");
-                });
-
-            modelBuilder.Entity("CandyShop.Models.Receipt", b =>
-                {
-                    b.Navigation("ReceiptItems");
                 });
 #pragma warning restore 612, 618
         }

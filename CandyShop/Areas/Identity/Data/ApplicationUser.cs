@@ -1,5 +1,6 @@
 ﻿using CandyShop.Models;
 using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace CandyShop.Areas.Identity.Data;
 
@@ -9,9 +10,9 @@ public class ApplicationUser : IdentityUser
 
     public string CustomerLName { get; set; }
 
-    public string PhoneNumber { get; set; }
+    public string PostalCode { get; set; }
 
-    public int PostalCode { get; set; }
+    public string PhoneNumber { get; set; }
 
     public string Address { get; set; }
 
@@ -21,9 +22,9 @@ public class ApplicationUser : IdentityUser
 
     public string CreditCardNumber { get; set; }
 
-    public int CartId { get; set; } 
     public Cart Cart { get; set; }
-    public int OrderId { get; set; }
-    public Order Order { get; set; }
-   // public Customer Customer { get; set; }
+
+
 }
+
+

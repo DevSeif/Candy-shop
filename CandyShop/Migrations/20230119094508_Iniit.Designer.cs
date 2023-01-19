@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CandyShop.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230116095912_Seed data")]
-    partial class Seeddata
+    [Migration("20230119094508_Iniit")]
+    partial class Iniit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,9 +35,6 @@ namespace CandyShop.Migrations
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CartId")
-                        .HasColumnType("int");
 
                     b.Property<string>("City")
                         .IsRequired()
@@ -84,9 +81,6 @@ namespace CandyShop.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
@@ -97,8 +91,9 @@ namespace CandyShop.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<int>("PostalCode")
-                        .HasColumnType("int");
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -112,9 +107,6 @@ namespace CandyShop.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CartId")
-                        .IsUnique();
-
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -123,63 +115,56 @@ namespace CandyShop.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.HasIndex("OrderId")
-                        .IsUnique();
-
                     b.ToTable("AspNetUsers", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = "4ce2bfa7-4805-4d19-a857-4e68af80fea1",
+                            Id = "851938db-f54e-4812-8456-5d56b1d2c11d",
                             AccessFailedCount = 0,
-                            Address = "North earth",
-                            CartId = 1,
-                            City = "Gothenburg",
-                            ConcurrencyStamp = "533385db-1306-4679-ae47-6cc8c3c893e2",
+                            Address = "Adminsgatan 8A",
+                            City = "Göteborg",
+                            ConcurrencyStamp = "f65e2e80-129f-4c76-a0fa-52c41ea046d0",
                             Country = "Sweden",
-                            CreditCardNumber = "785 785 744",
+                            CreditCardNumber = "00000 00000 00000",
                             CustomerFName = "Admin",
-                            CustomerLName = "Adminson",
-                            Email = "admin@admin.com",
+                            CustomerLName = "Adminsson",
+                            Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@ADMIN.COM",
-                            NormalizedUserName = "ADMIN",
-                            OrderId = 1,
-                            PasswordHash = "AQAAAAEAACcQAAAAEDWqmrCpkFeUyvLR8fEMz7wbsfx1S3TE6X6M2Uz2x4jiwVd6KH7APfYXs70w5bLQrA==",
-                            PhoneNumber = "8888",
+                            NormalizedEmail = "ADMIN@GMAIL:COM",
+                            NormalizedUserName = "admin@gmail.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEVqWC67Ggykh8bwWQm2txth0SEooZi8W5Gvvfn+njhxcizVbDkH7ZhPko3j21EQ9g==",
+                            PhoneNumber = "0737555555",
                             PhoneNumberConfirmed = false,
-                            PostalCode = 0,
-                            SecurityStamp = "b2c1d2dc-f5f2-42d3-be67-11063ae282be",
+                            PostalCode = "411777",
+                            SecurityStamp = "d45ca5e3-77ca-4c01-8315-e532d55ac2c3",
                             TwoFactorEnabled = false,
-                            UserName = "Admin"
+                            UserName = "admin@gmail.com"
                         },
                         new
                         {
-                            Id = "249a51b1-b3e9-46a5-adb4-2f52358c49fc",
+                            Id = "f79ace58-c8c4-4c3f-834a-fae52f4c0051",
                             AccessFailedCount = 0,
-                            Address = "South earth",
-                            CartId = 2,
-                            City = "Stockholm",
-                            ConcurrencyStamp = "611a3580-1db9-4c9b-b895-8d0cb921a018",
+                            Address = "Usersgatan 8A",
+                            City = "Göteborg",
+                            ConcurrencyStamp = "ba8848e1-ea50-41ac-b1ec-fd2ca1328ae7",
                             Country = "Sweden",
-                            CreditCardNumber = "555",
+                            CreditCardNumber = "00000 00000 00000",
                             CustomerFName = "User",
                             CustomerLName = "Usersson",
-                            Email = "user@user.com",
+                            Email = "user@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "USER@USER.COM",
-                            NormalizedUserName = "USER",
-                            OrderId = 2,
-                            PasswordHash = "AQAAAAEAACcQAAAAELuEl3uQgut34OcWsaWGy7FZofNZDA9wdEKuR1VP4c+oqfajcxBWrcMHTxsk/ncNNQ==",
-                            PhoneNumber = "7777",
+                            NormalizedEmail = "USER@GMAIL:COM",
+                            NormalizedUserName = "user@gmail.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAs+Me6bVeuKonG2JGTh6RhC9HcYX6YMnfljhAxUGs1QJ/hOvUfIXr37vXIuX9erVA==",
+                            PhoneNumber = "0737555555",
                             PhoneNumberConfirmed = false,
-                            PostalCode = 0,
-                            SecurityStamp = "fd8bf5c5-66bf-4704-8006-ac959eb5acd1",
+                            PostalCode = "411777",
+                            SecurityStamp = "d437e8e9-7c9a-4b1a-8358-35cf34ac3aed",
                             TwoFactorEnabled = false,
-                            UserName = "User"
+                            UserName = "user@gmail.com"
                         });
                 });
 
@@ -198,6 +183,10 @@ namespace CandyShop.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CandyImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CandyName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -208,17 +197,9 @@ namespace CandyShop.Migrations
                     b.Property<int>("CandyQuantity")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CartId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
                     b.HasKey("CandyId");
 
-                    b.HasIndex("CartId");
-
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("CandyCategoryId");
 
                     b.ToTable("Candies");
 
@@ -228,6 +209,7 @@ namespace CandyShop.Migrations
                             CandyId = 1,
                             CandyCategoryId = 1,
                             CandyDescription = "Caramels are made by cooking sugar and water together",
+                            CandyImage = "candy1",
                             CandyName = "Coffee Rio",
                             CandyPrice = 5.0,
                             CandyQuantity = 50
@@ -235,28 +217,231 @@ namespace CandyShop.Migrations
                         new
                         {
                             CandyId = 2,
+                            CandyCategoryId = 1,
+                            CandyDescription = "A tasty Caramel and sugary Crunch",
+                            CandyImage = "candy2",
+                            CandyName = "Caramel Crunch",
+                            CandyPrice = 15.0,
+                            CandyQuantity = 50
+                        },
+                        new
+                        {
+                            CandyId = 3,
+                            CandyCategoryId = 1,
+                            CandyDescription = "The Vanila taste with the sweet of caramel",
+                            CandyImage = "candy3",
+                            CandyName = "Vanilla Caramel",
+                            CandyPrice = 10.0,
+                            CandyQuantity = 50
+                        },
+                        new
+                        {
+                            CandyId = 4,
+                            CandyCategoryId = 1,
+                            CandyDescription = "The Vanila taste with the sweet of caramel",
+                            CandyImage = "candy4",
+                            CandyName = "Caramel Squares",
+                            CandyPrice = 10.0,
+                            CandyQuantity = 50
+                        },
+                        new
+                        {
+                            CandyId = 5,
+                            CandyCategoryId = 1,
+                            CandyDescription = "Combination of nuts and the sweet of caramel",
+                            CandyImage = "candy5",
+                            CandyName = "Nut Caramel",
+                            CandyPrice = 15.0,
+                            CandyQuantity = 40
+                        },
+                        new
+                        {
+                            CandyId = 6,
                             CandyCategoryId = 2,
                             CandyDescription = "Tastey colorful chocolate",
+                            CandyImage = "candy6",
                             CandyName = "M&Ms",
                             CandyPrice = 15.0,
                             CandyQuantity = 40
                         },
                         new
                         {
-                            CandyId = 3,
+                            CandyId = 7,
+                            CandyCategoryId = 2,
+                            CandyDescription = "A mini full of flavor chocolate",
+                            CandyImage = "candy7",
+                            CandyName = "Kit Kat",
+                            CandyPrice = 11.0,
+                            CandyQuantity = 45
+                        },
+                        new
+                        {
+                            CandyId = 8,
+                            CandyCategoryId = 2,
+                            CandyDescription = "Combination of Almond and the sweet of chocolate",
+                            CandyImage = "candy8",
+                            CandyName = "Almond Joy",
+                            CandyPrice = 16.0,
+                            CandyQuantity = 40
+                        },
+                        new
+                        {
+                            CandyId = 9,
+                            CandyCategoryId = 2,
+                            CandyDescription = "Combination of Cherries flavor and the sweet of chocolate",
+                            CandyImage = "candy9",
+                            CandyName = "Chocolate Cherries",
+                            CandyPrice = 15.0,
+                            CandyQuantity = 50
+                        },
+                        new
+                        {
+                            CandyId = 10,
+                            CandyCategoryId = 2,
+                            CandyDescription = "Biscute Coverd of chocolate",
+                            CandyImage = "candy10",
+                            CandyName = "Krackle",
+                            CandyPrice = 11.0,
+                            CandyQuantity = 50
+                        },
+                        new
+                        {
+                            CandyId = 11,
+                            CandyCategoryId = 2,
+                            CandyDescription = "Combination of nuts and the sweet of chocolate",
+                            CandyImage = "candy11",
+                            CandyName = "Snickers",
+                            CandyPrice = 15.0,
+                            CandyQuantity = 40
+                        },
+                        new
+                        {
+                            CandyId = 12,
                             CandyCategoryId = 3,
                             CandyDescription = "Gummies are gelatin based chewy candies",
+                            CandyImage = "candy12",
                             CandyName = "Gummi Cheries",
                             CandyPrice = 18.0,
                             CandyQuantity = 55
                         },
                         new
                         {
-                            CandyId = 4,
+                            CandyId = 13,
+                            CandyCategoryId = 3,
+                            CandyDescription = "Chewy candies With different flavors",
+                            CandyImage = "candy13",
+                            CandyName = "Gummi worms",
+                            CandyPrice = 5.0,
+                            CandyQuantity = 60
+                        },
+                        new
+                        {
+                            CandyId = 14,
+                            CandyCategoryId = 3,
+                            CandyDescription = "Chewy candies With cola flavor",
+                            CandyImage = "candy14",
+                            CandyName = "Gummi cola bottles",
+                            CandyPrice = 5.0,
+                            CandyQuantity = 60
+                        },
+                        new
+                        {
+                            CandyId = 15,
+                            CandyCategoryId = 3,
+                            CandyDescription = "Chewy candies With stawberry flavor",
+                            CandyImage = "candy15",
+                            CandyName = "Gummi strawberry",
+                            CandyPrice = 5.0,
+                            CandyQuantity = 60
+                        },
+                        new
+                        {
+                            CandyId = 16,
+                            CandyCategoryId = 3,
+                            CandyDescription = "Chewy candies With banana flavor",
+                            CandyImage = "candy16",
+                            CandyName = "Gummi banana",
+                            CandyPrice = 5.0,
+                            CandyQuantity = 60
+                        },
+                        new
+                        {
+                            CandyId = 17,
                             CandyCategoryId = 4,
                             CandyDescription = "Licorice is a semi-soft candy",
+                            CandyImage = "candy17",
                             CandyName = "Red Vines",
                             CandyPrice = 20.0,
+                            CandyQuantity = 50
+                        },
+                        new
+                        {
+                            CandyId = 18,
+                            CandyCategoryId = 4,
+                            CandyDescription = "Licorice is a semi-soft candy with cherry flavor",
+                            CandyImage = "candy18",
+                            CandyName = "Twizzler",
+                            CandyPrice = 20.0,
+                            CandyQuantity = 50
+                        },
+                        new
+                        {
+                            CandyId = 19,
+                            CandyCategoryId = 4,
+                            CandyDescription = "A hard sweet candy",
+                            CandyImage = "candy19",
+                            CandyName = "Chupa Chups",
+                            CandyPrice = 15.0,
+                            CandyQuantity = 40
+                        },
+                        new
+                        {
+                            CandyId = 20,
+                            CandyCategoryId = 4,
+                            CandyDescription = "A sour candy",
+                            CandyImage = "candy20",
+                            CandyName = "Sour Punch",
+                            CandyPrice = 13.0,
+                            CandyQuantity = 30
+                        },
+                        new
+                        {
+                            CandyId = 21,
+                            CandyCategoryId = 4,
+                            CandyDescription = "A sour candy",
+                            CandyImage = "candy21",
+                            CandyName = "Warheads",
+                            CandyPrice = 15.0,
+                            CandyQuantity = 40
+                        },
+                        new
+                        {
+                            CandyId = 22,
+                            CandyCategoryId = 4,
+                            CandyDescription = "Chewy sweet candy",
+                            CandyImage = "candy22",
+                            CandyName = "Abba-Zaba",
+                            CandyPrice = 10.0,
+                            CandyQuantity = 70
+                        },
+                        new
+                        {
+                            CandyId = 23,
+                            CandyCategoryId = 4,
+                            CandyDescription = "Chewy sweet candy",
+                            CandyImage = "candy23",
+                            CandyName = "Sky Bar",
+                            CandyPrice = 5.0,
+                            CandyQuantity = 60
+                        },
+                        new
+                        {
+                            CandyId = 24,
+                            CandyCategoryId = 4,
+                            CandyDescription = "Chewy with peach flavor candy",
+                            CandyImage = "candy24",
+                            CandyName = "Peach Blossoms",
+                            CandyPrice = 10.0,
                             CandyQuantity = 50
                         });
                 });
@@ -269,13 +454,17 @@ namespace CandyShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartId"), 1L, 1);
 
-                    b.Property<int>("CustomerId")
+                    b.Property<string>("CustomerCartId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("TotalPrice")
                         .HasColumnType("int");
 
-                    b.Property<double>("TotalPrice")
-                        .HasColumnType("float");
-
                     b.HasKey("CartId");
+
+                    b.HasIndex("CustomerCartId")
+                        .IsUnique();
 
                     b.ToTable("Carts");
 
@@ -283,14 +472,14 @@ namespace CandyShop.Migrations
                         new
                         {
                             CartId = 1,
-                            CustomerId = 0,
-                            TotalPrice = 0.0
+                            CustomerCartId = "851938db-f54e-4812-8456-5d56b1d2c11d",
+                            TotalPrice = 100
                         },
                         new
                         {
                             CartId = 2,
-                            CustomerId = 0,
-                            TotalPrice = 0.0
+                            CustomerCartId = "f79ace58-c8c4-4c3f-834a-fae52f4c0051",
+                            TotalPrice = 150
                         });
                 });
 
@@ -302,10 +491,11 @@ namespace CandyShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"), 1L, 1);
 
-                    b.Property<int>("CandyId")
-                        .HasColumnType("int");
+                    b.Property<string>("CategoryImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("CategoryName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -317,63 +507,36 @@ namespace CandyShop.Migrations
                         new
                         {
                             CategoryId = 1,
-                            CandyId = 1,
-                            Name = "Caramels"
+                            CategoryImage = "category1",
+                            CategoryName = "Caramels"
                         },
                         new
                         {
                             CategoryId = 2,
-                            CandyId = 2,
-                            Name = "Chocolate"
+                            CategoryImage = "category2",
+                            CategoryName = "Chocolate"
                         },
                         new
                         {
                             CategoryId = 3,
-                            CandyId = 3,
-                            Name = "Gummies"
+                            CategoryImage = "category3",
+                            CategoryName = "Gummies"
                         },
                         new
                         {
                             CategoryId = 4,
-                            CandyId = 4,
-                            Name = "Licorice"
+                            CategoryImage = "category4",
+                            CategoryName = "Combination"
                         });
                 });
 
-            modelBuilder.Entity("CandyShop.Models.Order", b =>
+            modelBuilder.Entity("CandyShop.Models.ItemOrder", b =>
                 {
-                    b.Property<int>("OrderId")
+                    b.Property<int>("ItemOrderId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"), 1L, 1);
-
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("TotalAmount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("OrderId");
-
-                    b.ToTable("Orders");
-
-                    b.HasData(
-                        new
-                        {
-                            OrderId = 1,
-                            OrderDate = new DateTime(2023, 1, 16, 10, 59, 11, 926, DateTimeKind.Local).AddTicks(3831),
-                            TotalAmount = 0m
-                        });
-                });
-
-            modelBuilder.Entity("CandyShop.Models.OrderItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ItemOrderId"), 1L, 1);
 
                     b.Property<int>("CandyId")
                         .HasColumnType("int");
@@ -382,20 +545,20 @@ namespace CandyShop.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OrderId")
+                    b.Property<int>("CartId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ItemOrderId");
 
-                    b.HasIndex("OrderId");
+                    b.HasIndex("CartId");
 
-                    b.ToTable("Items");
+                    b.ToTable("ItemOrders");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -427,15 +590,15 @@ namespace CandyShop.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "abf89200-196e-4ea6-a79e-de76dfe5b8de",
-                            ConcurrencyStamp = "be0184f9-49dd-4d58-9e18-d4cd4f82e59d",
+                            Id = "f09c4969-25f1-4f21-8e14-a0daf651fbc8",
+                            ConcurrencyStamp = "78546761-3afb-483b-a3f6-1cae622b0176",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "090fd892-b09a-40f5-80c6-f5498633daf4",
-                            ConcurrencyStamp = "df7d2052-cf18-4dad-9941-7e097a179f7b",
+                            Id = "79b4808f-81a7-4ce7-a085-aa48f9220a09",
+                            ConcurrencyStamp = "6cb5ebdb-438c-4298-89b6-9b38e2754b12",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -530,13 +693,13 @@ namespace CandyShop.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "4ce2bfa7-4805-4d19-a857-4e68af80fea1",
-                            RoleId = "abf89200-196e-4ea6-a79e-de76dfe5b8de"
+                            UserId = "851938db-f54e-4812-8456-5d56b1d2c11d",
+                            RoleId = "f09c4969-25f1-4f21-8e14-a0daf651fbc8"
                         },
                         new
                         {
-                            UserId = "249a51b1-b3e9-46a5-adb4-2f52358c49fc",
-                            RoleId = "090fd892-b09a-40f5-80c6-f5498633daf4"
+                            UserId = "f79ace58-c8c4-4c3f-834a-fae52f4c0051",
+                            RoleId = "79b4808f-81a7-4ce7-a085-aa48f9220a09"
                         });
                 });
 
@@ -559,45 +722,37 @@ namespace CandyShop.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("CandyShop.Areas.Identity.Data.ApplicationUser", b =>
+            modelBuilder.Entity("CandyShop.Models.Candy", b =>
                 {
-                    b.HasOne("CandyShop.Models.Cart", "Cart")
-                        .WithOne("Customer")
-                        .HasForeignKey("CandyShop.Areas.Identity.Data.ApplicationUser", "CartId")
+                    b.HasOne("CandyShop.Models.Category", "Category")
+                        .WithMany("Candies")
+                        .HasForeignKey("CandyCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CandyShop.Models.Order", "Order")
-                        .WithOne("Customer")
-                        .HasForeignKey("CandyShop.Areas.Identity.Data.ApplicationUser", "OrderId")
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("CandyShop.Models.Cart", b =>
+                {
+                    b.HasOne("CandyShop.Areas.Identity.Data.ApplicationUser", "Customer")
+                        .WithOne("Cart")
+                        .HasForeignKey("CandyShop.Models.Cart", "CustomerCartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("CandyShop.Models.ItemOrder", b =>
+                {
+                    b.HasOne("CandyShop.Models.Cart", "Cart")
+                        .WithMany("ItemOrders")
+                        .HasForeignKey("CartId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Cart");
-
-                    b.Navigation("Order");
-                });
-
-            modelBuilder.Entity("CandyShop.Models.Candy", b =>
-                {
-                    b.HasOne("CandyShop.Models.Cart", null)
-                        .WithMany("Candies")
-                        .HasForeignKey("CartId");
-
-                    b.HasOne("CandyShop.Models.Category", null)
-                        .WithMany("Candies")
-                        .HasForeignKey("CategoryId");
-                });
-
-            modelBuilder.Entity("CandyShop.Models.OrderItem", b =>
-                {
-                    b.HasOne("CandyShop.Models.Order", "Order")
-                        .WithMany("Items")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -651,25 +806,20 @@ namespace CandyShop.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("CandyShop.Areas.Identity.Data.ApplicationUser", b =>
+                {
+                    b.Navigation("Cart")
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("CandyShop.Models.Cart", b =>
                 {
-                    b.Navigation("Candies");
-
-                    b.Navigation("Customer")
-                        .IsRequired();
+                    b.Navigation("ItemOrders");
                 });
 
             modelBuilder.Entity("CandyShop.Models.Category", b =>
                 {
                     b.Navigation("Candies");
-                });
-
-            modelBuilder.Entity("CandyShop.Models.Order", b =>
-                {
-                    b.Navigation("Customer")
-                        .IsRequired();
-
-                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }
