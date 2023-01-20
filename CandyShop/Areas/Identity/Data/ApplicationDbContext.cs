@@ -49,7 +49,7 @@ namespace CandyShop.Areas.Identity.Data
                 NormalizedEmail = "ADMIN@GMAIL:COM",
                 UserName = "admin@gmail.com",
                 NormalizedUserName = "admin@gmail.com",
-                PasswordHash = hasher.HashPassword(null, "password123"),
+                PasswordHash = hasher.HashPassword(null, "Abc123!"),
                 CustomerFName = "Admin",
                 CustomerLName = "Adminsson",
                 Address = "Adminsgatan 8A",
@@ -67,7 +67,7 @@ namespace CandyShop.Areas.Identity.Data
                 NormalizedEmail = "USER@GMAIL:COM",
                 UserName = "user@gmail.com",
                 NormalizedUserName = "user@gmail.com",
-                PasswordHash = hasher.HashPassword(null, "password123"),
+                PasswordHash = hasher.HashPassword(null, "Abc123!"),
                 CustomerFName = "User",
                 CustomerLName = "Usersson",
                 Address = "Usersgatan 8A",
@@ -358,8 +358,8 @@ namespace CandyShop.Areas.Identity.Data
                 );
 
             modelBuilder.Entity<Cart>().HasData(
-                new Cart { CartId = 1, CustomerCartId = customerId, TotalPrice = 100},
-                new Cart { CartId = 2, CustomerCartId = customerId2, TotalPrice = 150 }
+                new Cart { CartId = 1, CustomerCartId = customerId},
+                new Cart { CartId = 2, CustomerCartId = customerId2}
                 );
 
 

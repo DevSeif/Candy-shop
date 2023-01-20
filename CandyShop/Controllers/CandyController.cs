@@ -8,7 +8,6 @@ using Newtonsoft.Json;
 using System.Text.Json.Nodes;
 using System;
 using Microsoft.AspNetCore.Identity;
-using CandyShop.Migrations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.UI.Services;
 
@@ -57,10 +56,10 @@ namespace CandyShop.Controllers
                 if (result.Succeeded)
                 {
                     await _userManager.AddToRoleAsync(user, "User");
-                    Cart cart = new Cart { CustomerCartId = user.Id, TotalPrice = 0 };
+                    Cart cart = new Cart { CustomerCartId = user.Id};
                     _context.Carts.Add(cart);
                     _context.SaveChanges();
-                    _signInManager.SignInAsync(user, isPersistent: false);
+                    await _signInManager.SignInAsync(user, isPersistent: false);
                     return StatusCode(200);
                 }
             }
@@ -106,14 +105,14 @@ namespace CandyShop.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return LocalRedirect("/");
+            return StatusCode(200);
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginVM model)
         {
 
-            var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, lockoutOnFailure: false);
+            var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, true, lockoutOnFailure: false);
 
             if (result.Succeeded)
             {

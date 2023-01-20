@@ -135,7 +135,7 @@ namespace CandyShop.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     await _userManager.AddToRoleAsync(user, "User");
-                    Cart cart = new Cart { CustomerCartId = user.Id, TotalPrice = 0};
+                    Cart cart = new Cart { CustomerCartId = user.Id};
                     _context.Carts.Add(cart);
                     _context.SaveChanges();
                     _logger.LogInformation("User created a new account with password.");
