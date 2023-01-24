@@ -41,12 +41,7 @@ namespace CandyShop.Controllers
 
                 user.CustomerFName = model.CustomerFName;
                 user.CustomerLName = model.CustomerLName;
-                user.PostalCode = model.PostalCode;
                 user.PhoneNumber = model.PhoneNumber;
-                user.Address = model.Address;
-                user.City = model.City;
-                user.Country = model.Country;
-                user.CreditCardNumber = model.CreditCardNumber;
 
 
                 await _userStore.SetUserNameAsync(user, model.Email, CancellationToken.None);
@@ -206,72 +201,11 @@ namespace CandyShop.Controllers
             return _context.Categories.ToList();
         }
 
-        [HttpGet("users")]
-        public List<ApplicationUser> GetUsers()
+
+        [HttpGet("showcart/{id}")]
+        public Cart ShowCart(string id)
         {
-            return _context.Customers.ToList();
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult DeleteCandy(int id)
-        {
-            var candy = _context.Candies.Find(id);
-
-            if (candy != null)
-            {
-                _context.Candies.Remove(candy);
-                _context.SaveChanges();
-
-                return StatusCode(200);
-            }
-            return StatusCode(404);
-        }
-
-        [HttpPut("{id}")]
-        public IActionResult UpdateCandy(int id, [FromBody] Candy updatedCandy)
-        {
-            if (updatedCandy == null)
-                return BadRequest("Candy ID mismatch");
-
-            try
-            {
-
-                //var candyToUpdate = _context.Candies.Find(id);
-
-                //if (candyToUpdate == null)
-                //    return NotFound($"Candy with candyId = {id} not found");
-
-                //updatedCandy.CandyId = candyToUpdate.CandyId;
-
-
-
-                _context.Candies.Update(updatedCandy);
-                _context.SaveChanges();
-
-                return StatusCode(200);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError,
-                    "Error updating data: " + ex);
-            }
-        }
-
-        [HttpPost("create")]
-        public IActionResult CreateCandy(JsonObject candy)
-        {
-            string jsonCandy = candy.ToString();
-            Candy candyToCreate = JsonConvert.DeserializeObject<Candy>(jsonCandy);
-
-            if (candyToCreate != null)
-            {
-                _context.Candies.Add(candyToCreate);
-                _context.SaveChanges();
-
-                return StatusCode(200);
-            }
-
-            return StatusCode(404);
+            return _context.Carts.Include(i => i.ItemOrders).FirstOrDefault(x => x.CustomerCartId == id);
         }
 
 

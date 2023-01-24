@@ -121,12 +121,7 @@ namespace CandyShop.Areas.Identity.Pages.Account
 
                 user.CustomerFName = Input.CustomerFName;
                 user.CustomerLName = Input.CustomerLName;
-                user.PostalCode = Input.PostalCode;
                 user.PhoneNumber = Input.PhoneNumber;
-                user.Address = Input.Address;
-                user.City = Input.City;
-                user.Country = Input.Country;
-                user.CreditCardNumber = Input.CreditCardNumber;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
