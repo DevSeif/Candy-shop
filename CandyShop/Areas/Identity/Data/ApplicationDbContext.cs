@@ -52,12 +52,7 @@ namespace CandyShop.Areas.Identity.Data
                 PasswordHash = hasher.HashPassword(null, "Abc123!"),
                 CustomerFName = "Admin",
                 CustomerLName = "Adminsson",
-                Address = "Adminsgatan 8A",
                 PhoneNumber = "0737555555",
-                PostalCode = "411777",
-                City = "Göteborg",
-                Country = "Sweden",
-                CreditCardNumber = "00000 00000 00000",
             },
 
                 new ApplicationUser
@@ -70,12 +65,7 @@ namespace CandyShop.Areas.Identity.Data
                 PasswordHash = hasher.HashPassword(null, "Abc123!"),
                 CustomerFName = "User",
                 CustomerLName = "Usersson",
-                Address = "Usersgatan 8A",
                 PhoneNumber = "0737555555",
-                PostalCode = "411777",
-                City = "Göteborg",
-                Country = "Sweden",
-                CreditCardNumber = "00000 00000 00000",
                 }
             );
 
