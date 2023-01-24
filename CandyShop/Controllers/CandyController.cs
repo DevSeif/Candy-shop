@@ -68,7 +68,7 @@ namespace CandyShop.Controllers
         }
 
 
-        [HttpGet("candies")]
+        [HttpGet]
         public List<Candy> GetCandies()
         {
             return _context.Candies.ToList();
@@ -79,6 +79,58 @@ namespace CandyShop.Controllers
         public List<Category> GetCategories()
         {
             return _context.Categories.Include(x => x.Candies).ToList();
+        }
+
+        [HttpDelete("categories/{id}")]
+        public IActionResult DeleteCategory(int id)
+        {
+            var category = _context.Categories.Find(id);
+
+            if (category != null)
+            {
+                _context.Categories.Remove(category);
+                _context.SaveChanges();
+
+                return StatusCode(200);
+            }
+            return StatusCode(404);
+        }
+
+        [HttpPut("categories/{id}")]
+        public IActionResult UpdateCategory(int id, [FromBody] Category updatedCategory)
+        {
+            if (updatedCategory == null)
+                return BadRequest("Category ID mismatch");
+
+            try
+            {
+                _context.Categories.Update(updatedCategory);
+                _context.SaveChanges();
+
+                return StatusCode(200);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error updating data: " + ex);
+            }
+        }
+
+        [HttpPost("createCategory")]
+        public IActionResult CreateCategory(JsonObject category)
+        {
+            string jsonCategory = category.ToString();
+            Category categoryToCreate = JsonConvert.DeserializeObject<Category>(jsonCategory);
+
+            if (categoryToCreate != null)
+            {
+                _context.Categories.Add(categoryToCreate);
+                _context.SaveChanges();
+
+                return StatusCode(200);
+            }
+
+            return StatusCode(404);
         }
 
 
@@ -161,7 +213,7 @@ namespace CandyShop.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult DeleteCandy(int id)
         {
             var candy = _context.Candies.Find(id);
 
@@ -194,7 +246,7 @@ namespace CandyShop.Controllers
 
 
                 _context.Candies.Update(updatedCandy);
-                //_context.SaveChanges();
+                _context.SaveChanges();
 
                 return StatusCode(200);
             }
@@ -206,7 +258,7 @@ namespace CandyShop.Controllers
         }
 
         [HttpPost("create")]
-        public IActionResult Create(JsonObject candy)
+        public IActionResult CreateCandy(JsonObject candy)
         {
             string jsonCandy = candy.ToString();
             Candy candyToCreate = JsonConvert.DeserializeObject<Candy>(jsonCandy);

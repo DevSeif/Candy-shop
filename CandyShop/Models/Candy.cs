@@ -7,11 +7,11 @@ namespace CandyShop.Models
         [Key]
         public int CandyId { get; set; }
 
-        public string CandyName { get; set; }
+        public string? CandyName { get; set; }
 
-        public string CandyDescription { get; set; }
+        public string? CandyDescription { get; set; }
 
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
 
         public int CandyCategoryId { get; set; }
 
@@ -19,7 +19,7 @@ namespace CandyShop.Models
 
         public int CandyQuantity { get; set; }
 
-        public string CandyImage { get; set; }
+        public string? CandyImage { get; set; }
 
         //public string Image { get; set; }
 

@@ -8,7 +8,7 @@ namespace CandyShop.Models
         [Key]
         public int CartId { get; set; }
 
-        public string CustomerCartId { get; set; }
+        public string? CustomerCartId { get; set; }
 
         public ApplicationUser Customer { get; set; }
 
