@@ -155,18 +155,24 @@ namespace CandyShop.Controllers
             return StatusCode(200);
         }
 
-        [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginVM model)
+        [HttpGet("login")]
+        public async Task<UserVM> Login(LoginVM model)
         {
 
             var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, true, lockoutOnFailure: false);
 
             if (result.Succeeded)
             {
-
-                return StatusCode(200);
+                var user = _context.Customers.FirstOrDefault(x => x.Email == model.Email);
+                UserVM userVM = new UserVM { CustomerFName = user.CustomerFName, CustomerLName = user.CustomerLName, Email = user.Email, UserId = user.Id};
+                if (User.IsInRole("Admin")) { userVM.IsAdmin = true; }
+                else
+                {
+                    userVM.IsAdmin = false;
+                }
+                return userVM;
             }
-            return StatusCode(400);
+            return null;
         }
 
         [HttpGet("getusername")]
@@ -193,6 +199,24 @@ namespace CandyShop.Controllers
         
 
             return user.Id;
+        }
+
+        [HttpGet("purchase/{id}")]
+        public Order Purchase(string id)
+        {
+            int totalAmount = 0;
+            //Behöver fixa mer senare, lägger till kommentar som påminnelse
+
+            Cart cart = _context.Carts.Include(i => i.ItemOrders).FirstOrDefault(x => x.CustomerCartId == id);
+
+            foreach (var item in cart.ItemOrders)
+            {
+                totalAmount += item.Price * item.Quantity;
+            }
+
+            Order order = new Order { Items = cart.ItemOrders, OrderDate = DateTime.Today, TotalAmount = totalAmount};
+
+            return order;
         }
 
         [HttpGet("onlyCategories")]
