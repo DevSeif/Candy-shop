@@ -30,24 +30,8 @@ namespace CandyShop.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CreditCardNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerFName")
@@ -89,10 +73,6 @@ namespace CandyShop.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("PostalCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -118,13 +98,9 @@ namespace CandyShop.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "cc2214ad-755e-4fca-ac3a-60c2f41af185",
+                            Id = "5c166223-aa52-4716-85f1-7fb04c685934",
                             AccessFailedCount = 0,
-                            Address = "Adminsgatan 8A",
-                            City = "Göteborg",
-                            ConcurrencyStamp = "b8d58e99-1561-4286-8490-9aa3ece2656d",
-                            Country = "Sweden",
-                            CreditCardNumber = "00000 00000 00000",
+                            ConcurrencyStamp = "1f9d386d-c9d7-4c8e-afa5-4dbc6cf66cf8",
                             CustomerFName = "Admin",
                             CustomerLName = "Adminsson",
                             Email = "admin@gmail.com",
@@ -132,23 +108,18 @@ namespace CandyShop.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL:COM",
                             NormalizedUserName = "admin@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBHzwhsOPc3cLr8gXdnRCYEQIUN+vG19plsqkBnisn1Is+jakOElP5WV0uIxrIkhAQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELoBc+8BSYyM/nDkmPUmlHUv3GAU3D2rSTPC/X603dqS1Tgg6WU9IaeDht4UmIbXCA==",
                             PhoneNumber = "0737555555",
                             PhoneNumberConfirmed = false,
-                            PostalCode = "411777",
-                            SecurityStamp = "32cd3e13-d21e-4bcd-9f83-5960e0cfac24",
+                            SecurityStamp = "6d43ce2d-ffff-4d81-ad79-4b8d66874698",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         },
                         new
                         {
-                            Id = "ae66b829-2bfc-4448-a67f-6f288e569919",
+                            Id = "84bd3c3e-bc14-43e1-b522-6053b1261f1d",
                             AccessFailedCount = 0,
-                            Address = "Usersgatan 8A",
-                            City = "Göteborg",
-                            ConcurrencyStamp = "4177cbd0-73ae-4127-b656-5cf4d39669bc",
-                            Country = "Sweden",
-                            CreditCardNumber = "00000 00000 00000",
+                            ConcurrencyStamp = "bdcc848f-402e-4adf-ad40-12926b6c6150",
                             CustomerFName = "User",
                             CustomerLName = "Usersson",
                             Email = "user@gmail.com",
@@ -156,11 +127,10 @@ namespace CandyShop.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@GMAIL:COM",
                             NormalizedUserName = "user@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFYHsdjXOa4vMPHyw6n5sUP5OqJxRwV8li8JXF26fHskvtNFa73xzWD6aS0bTG3XMA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAACvo6ZMn7/BMj2q9N79LOmcg2ajUskVKipQ0yicFdaL+zhErXSdN/dfQGZqcrbOg==",
                             PhoneNumber = "0737555555",
                             PhoneNumberConfirmed = false,
-                            PostalCode = "411777",
-                            SecurityStamp = "b8fef4c3-6356-445d-877c-89da24cc635e",
+                            SecurityStamp = "f733c62e-e331-40c2-88c9-74af8ff62505",
                             TwoFactorEnabled = false,
                             UserName = "user@gmail.com"
                         });
@@ -464,12 +434,12 @@ namespace CandyShop.Migrations
                         new
                         {
                             CartId = 1,
-                            CustomerCartId = "cc2214ad-755e-4fca-ac3a-60c2f41af185"
+                            CustomerCartId = "5c166223-aa52-4716-85f1-7fb04c685934"
                         },
                         new
                         {
                             CartId = 2,
-                            CustomerCartId = "ae66b829-2bfc-4448-a67f-6f288e569919"
+                            CustomerCartId = "84bd3c3e-bc14-43e1-b522-6053b1261f1d"
                         });
                 });
 
@@ -578,15 +548,15 @@ namespace CandyShop.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6ebb72cc-aa37-4d5d-979d-4e485f0f2403",
-                            ConcurrencyStamp = "6f583152-8427-41c6-b119-e305acea9ab0",
+                            Id = "9eda3cdb-fe1e-44ed-9f90-3d8c71edfa99",
+                            ConcurrencyStamp = "d4cf3d5b-0e86-4b13-ad49-a9e5344880ce",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "67a7d866-71b0-4218-b40c-a5f12ecf658c",
-                            ConcurrencyStamp = "c73d6b64-6eb7-41b3-9870-cfc84bc7e5fc",
+                            Id = "0f9568c0-955b-4415-9281-083bde9e3f62",
+                            ConcurrencyStamp = "f9811a2e-fcc7-40cf-96fd-986b70d134c5",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -683,13 +653,13 @@ namespace CandyShop.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "cc2214ad-755e-4fca-ac3a-60c2f41af185",
-                            RoleId = "6ebb72cc-aa37-4d5d-979d-4e485f0f2403"
+                            UserId = "5c166223-aa52-4716-85f1-7fb04c685934",
+                            RoleId = "9eda3cdb-fe1e-44ed-9f90-3d8c71edfa99"
                         },
                         new
                         {
-                            UserId = "ae66b829-2bfc-4448-a67f-6f288e569919",
-                            RoleId = "67a7d866-71b0-4218-b40c-a5f12ecf658c"
+                            UserId = "84bd3c3e-bc14-43e1-b522-6053b1261f1d",
+                            RoleId = "0f9568c0-955b-4415-9281-083bde9e3f62"
                         });
                 });
 
