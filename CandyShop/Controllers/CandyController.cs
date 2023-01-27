@@ -242,7 +242,7 @@ namespace CandyShop.Controllers
             return _context.Categories.ToList();
         }
 
-        [HttpGet("showhistory")]
+        [HttpGet("showhistory/{id}")]
         public List<Order> ShowHistory(string id)
         {
            var customer = _context.Customers.Include(o => o.Orders).FirstOrDefault(x => x.Id == id);
