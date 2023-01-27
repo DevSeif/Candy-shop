@@ -10,6 +10,7 @@ using System;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using System.Diagnostics.Metrics;
 
 namespace CandyShop.Controllers
 {
@@ -155,7 +156,7 @@ namespace CandyShop.Controllers
             return StatusCode(200);
         }
 
-        [HttpGet("login")]
+        [HttpPost("login")]
         public async Task<UserVM> Login(LoginVM model)
         {
 
@@ -163,13 +164,10 @@ namespace CandyShop.Controllers
 
             if (result.Succeeded)
             {
-                var user = _context.Customers.FirstOrDefault(x => x.Email == model.Email);
-                UserVM userVM = new UserVM { CustomerFName = user.CustomerFName, CustomerLName = user.CustomerLName, Email = user.Email, UserId = user.Id};
+                var user = _context.Customers.Include(c => c.Cart).FirstOrDefault(x => x.Email == model.Email);
+                UserVM userVM = new UserVM { CustomerFName = user.CustomerFName, CustomerLName = user.CustomerLName, Email = user.Email, UserId = user.Id, CartId = user.Cart.CartId, IsAdmin = false};
                 if (User.IsInRole("Admin")) { userVM.IsAdmin = true; }
-                else
-                {
-                    userVM.IsAdmin = false;
-                }
+
                 return userVM;
             }
             return null;
@@ -192,6 +190,14 @@ namespace CandyShop.Controllers
             return roles.ToList();
         }
 
+
+        [HttpGet("checkadmin")]
+        public bool CheckIfAdmin()
+        {
+            return User.IsInRole("Admin");
+        }
+
+
         [HttpGet("getid")]
         public async Task<string> GetId()
         {
@@ -211,10 +217,21 @@ namespace CandyShop.Controllers
 
             foreach (var item in cart.ItemOrders)
             {
+                Candy candy = _context.Candies.Find(item.CandyId);
+                candy.CandyQuantity -= item.Quantity;
+                _context.Candies.Update(candy);
                 totalAmount += item.Price * item.Quantity;
             }
 
-            Order order = new Order { Items = cart.ItemOrders, OrderDate = DateTime.Today, TotalAmount = totalAmount};
+            Order order = new Order { Items = cart.ItemOrders, OrderDate = DateTime.Today, TotalAmount = totalAmount, UserId = id};
+            _context.Orders.Add(order);
+
+            //var customer = _context.Customers.Find(id);
+            //customer.Cart.ItemOrders.Clear();
+
+            //_context.Customers.Update(customer);
+
+            _context.SaveChanges();
 
             return order;
         }
@@ -223,6 +240,14 @@ namespace CandyShop.Controllers
         public List<Category> GetonlyCategories()
         {
             return _context.Categories.ToList();
+        }
+
+        [HttpGet("showhistory")]
+        public List<Order> ShowHistory(string id)
+        {
+           var customer = _context.Customers.Include(o => o.Orders).FirstOrDefault(x => x.Id == id);
+
+            return customer.Orders.ToList();
         }
 
 

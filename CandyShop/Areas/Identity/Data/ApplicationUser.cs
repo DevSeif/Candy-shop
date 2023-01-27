@@ -12,6 +12,8 @@ public class ApplicationUser : IdentityUser
 
     public string PhoneNumber { get; set; }
 
+    public List<Order> Orders = new List<Order>();
+
     public Cart Cart { get; set; }
 
 

@@ -12,6 +12,8 @@ namespace CandyShop.ViewModels
 
         public string Email { get; set; }
 
+        public int CartId { get; set; }
+
         public bool IsAdmin { get; set; }
 
 
