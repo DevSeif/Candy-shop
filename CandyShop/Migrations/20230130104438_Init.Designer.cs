@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CandyShop.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230124123315_update to Category in Candycontroller")]
-    partial class updatetoCategoryinCandycontroller
+    [Migration("20230130104438_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,24 +32,8 @@ namespace CandyShop.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CreditCardNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerFName")
@@ -91,10 +75,6 @@ namespace CandyShop.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("PostalCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -120,13 +100,9 @@ namespace CandyShop.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "cc2214ad-755e-4fca-ac3a-60c2f41af185",
+                            Id = "b07c4b5a-2c41-4d14-8e07-4def93f5a8d0",
                             AccessFailedCount = 0,
-                            Address = "Adminsgatan 8A",
-                            City = "Göteborg",
-                            ConcurrencyStamp = "b8d58e99-1561-4286-8490-9aa3ece2656d",
-                            Country = "Sweden",
-                            CreditCardNumber = "00000 00000 00000",
+                            ConcurrencyStamp = "d0a8974b-f9a7-4971-b0dc-5e586422f18f",
                             CustomerFName = "Admin",
                             CustomerLName = "Adminsson",
                             Email = "admin@gmail.com",
@@ -134,23 +110,18 @@ namespace CandyShop.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL:COM",
                             NormalizedUserName = "admin@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBHzwhsOPc3cLr8gXdnRCYEQIUN+vG19plsqkBnisn1Is+jakOElP5WV0uIxrIkhAQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELsUGJRmUGkkaUNv2V3fr56bQqoT/lDXejPElKcqyLJfiUmm0yma+5W+EK5X18HAng==",
                             PhoneNumber = "0737555555",
                             PhoneNumberConfirmed = false,
-                            PostalCode = "411777",
-                            SecurityStamp = "32cd3e13-d21e-4bcd-9f83-5960e0cfac24",
+                            SecurityStamp = "7eea72d1-a7dd-4781-a0c1-af2996ebcc8f",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         },
                         new
                         {
-                            Id = "ae66b829-2bfc-4448-a67f-6f288e569919",
+                            Id = "3fd85137-7dcf-4e06-af6d-69241001ff04",
                             AccessFailedCount = 0,
-                            Address = "Usersgatan 8A",
-                            City = "Göteborg",
-                            ConcurrencyStamp = "4177cbd0-73ae-4127-b656-5cf4d39669bc",
-                            Country = "Sweden",
-                            CreditCardNumber = "00000 00000 00000",
+                            ConcurrencyStamp = "a2fafd45-8240-4ec7-9ea9-04aa600fe293",
                             CustomerFName = "User",
                             CustomerLName = "Usersson",
                             Email = "user@gmail.com",
@@ -158,11 +129,10 @@ namespace CandyShop.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@GMAIL:COM",
                             NormalizedUserName = "user@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFYHsdjXOa4vMPHyw6n5sUP5OqJxRwV8li8JXF26fHskvtNFa73xzWD6aS0bTG3XMA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJWX0hZPsYxfW6vBilEMvmxfE0zL5pQ/vgot0I2KMlmZCRgHiKFvY4elaV4BAEKC5Q==",
                             PhoneNumber = "0737555555",
                             PhoneNumberConfirmed = false,
-                            PostalCode = "411777",
-                            SecurityStamp = "b8fef4c3-6356-445d-877c-89da24cc635e",
+                            SecurityStamp = "99590c17-21b6-4ce4-b78d-5284b119db73",
                             TwoFactorEnabled = false,
                             UserName = "user@gmail.com"
                         });
@@ -206,7 +176,7 @@ namespace CandyShop.Migrations
                             CandyId = 1,
                             CandyCategoryId = 1,
                             CandyDescription = "Caramels are made by cooking sugar and water together",
-                            CandyImage = "candy1",
+                            CandyImage = "Choklad1.jpg",
                             CandyName = "Coffee Rio",
                             CandyPrice = 5.0,
                             CandyQuantity = 50
@@ -216,7 +186,7 @@ namespace CandyShop.Migrations
                             CandyId = 2,
                             CandyCategoryId = 1,
                             CandyDescription = "A tasty Caramel and sugary Crunch",
-                            CandyImage = "candy2",
+                            CandyImage = "Choklad2.png",
                             CandyName = "Caramel Crunch",
                             CandyPrice = 15.0,
                             CandyQuantity = 50
@@ -226,7 +196,7 @@ namespace CandyShop.Migrations
                             CandyId = 3,
                             CandyCategoryId = 1,
                             CandyDescription = "The Vanila taste with the sweet of caramel",
-                            CandyImage = "candy3",
+                            CandyImage = "Choklad3.jpg",
                             CandyName = "Vanilla Caramel",
                             CandyPrice = 10.0,
                             CandyQuantity = 50
@@ -235,8 +205,8 @@ namespace CandyShop.Migrations
                         {
                             CandyId = 4,
                             CandyCategoryId = 1,
-                            CandyDescription = "The Vanila taste with the sweet of caramel",
-                            CandyImage = "candy4",
+                            CandyDescription = "The Vanilla taste with the sweet of caramel",
+                            CandyImage = "Choklad4.jpg",
                             CandyName = "Caramel Squares",
                             CandyPrice = 10.0,
                             CandyQuantity = 50
@@ -246,7 +216,7 @@ namespace CandyShop.Migrations
                             CandyId = 5,
                             CandyCategoryId = 1,
                             CandyDescription = "Combination of nuts and the sweet of caramel",
-                            CandyImage = "candy5",
+                            CandyImage = "Choklad5.jpg",
                             CandyName = "Nut Caramel",
                             CandyPrice = 15.0,
                             CandyQuantity = 40
@@ -256,7 +226,7 @@ namespace CandyShop.Migrations
                             CandyId = 6,
                             CandyCategoryId = 2,
                             CandyDescription = "Tastey colorful chocolate",
-                            CandyImage = "candy6",
+                            CandyImage = "Gele1.jpg",
                             CandyName = "M&Ms",
                             CandyPrice = 15.0,
                             CandyQuantity = 40
@@ -266,7 +236,7 @@ namespace CandyShop.Migrations
                             CandyId = 7,
                             CandyCategoryId = 2,
                             CandyDescription = "A mini full of flavor chocolate",
-                            CandyImage = "candy7",
+                            CandyImage = "Gele2.jpg",
                             CandyName = "Kit Kat",
                             CandyPrice = 11.0,
                             CandyQuantity = 45
@@ -276,7 +246,7 @@ namespace CandyShop.Migrations
                             CandyId = 8,
                             CandyCategoryId = 2,
                             CandyDescription = "Combination of Almond and the sweet of chocolate",
-                            CandyImage = "candy8",
+                            CandyImage = "Gele3.jpg",
                             CandyName = "Almond Joy",
                             CandyPrice = 16.0,
                             CandyQuantity = 40
@@ -286,7 +256,7 @@ namespace CandyShop.Migrations
                             CandyId = 9,
                             CandyCategoryId = 2,
                             CandyDescription = "Combination of Cherries flavor and the sweet of chocolate",
-                            CandyImage = "candy9",
+                            CandyImage = "Gele4.jpg",
                             CandyName = "Chocolate Cherries",
                             CandyPrice = 15.0,
                             CandyQuantity = 50
@@ -296,7 +266,7 @@ namespace CandyShop.Migrations
                             CandyId = 10,
                             CandyCategoryId = 2,
                             CandyDescription = "Biscute Coverd of chocolate",
-                            CandyImage = "candy10",
+                            CandyImage = "Gele5.jpg",
                             CandyName = "Krackle",
                             CandyPrice = 11.0,
                             CandyQuantity = 50
@@ -306,7 +276,7 @@ namespace CandyShop.Migrations
                             CandyId = 11,
                             CandyCategoryId = 2,
                             CandyDescription = "Combination of nuts and the sweet of chocolate",
-                            CandyImage = "candy11",
+                            CandyImage = "Gele2.jpg",
                             CandyName = "Snickers",
                             CandyPrice = 15.0,
                             CandyQuantity = 40
@@ -316,7 +286,7 @@ namespace CandyShop.Migrations
                             CandyId = 12,
                             CandyCategoryId = 3,
                             CandyDescription = "Gummies are gelatin based chewy candies",
-                            CandyImage = "candy12",
+                            CandyImage = "Karamell1.jpg",
                             CandyName = "Gummi Cheries",
                             CandyPrice = 18.0,
                             CandyQuantity = 55
@@ -326,7 +296,7 @@ namespace CandyShop.Migrations
                             CandyId = 13,
                             CandyCategoryId = 3,
                             CandyDescription = "Chewy candies With different flavors",
-                            CandyImage = "candy13",
+                            CandyImage = "Karamell2.jpg",
                             CandyName = "Gummi worms",
                             CandyPrice = 5.0,
                             CandyQuantity = 60
@@ -336,7 +306,7 @@ namespace CandyShop.Migrations
                             CandyId = 14,
                             CandyCategoryId = 3,
                             CandyDescription = "Chewy candies With cola flavor",
-                            CandyImage = "candy14",
+                            CandyImage = "Karamell3.jpg",
                             CandyName = "Gummi cola bottles",
                             CandyPrice = 5.0,
                             CandyQuantity = 60
@@ -346,7 +316,7 @@ namespace CandyShop.Migrations
                             CandyId = 15,
                             CandyCategoryId = 3,
                             CandyDescription = "Chewy candies With stawberry flavor",
-                            CandyImage = "candy15",
+                            CandyImage = "Karamell4.jpg",
                             CandyName = "Gummi strawberry",
                             CandyPrice = 5.0,
                             CandyQuantity = 60
@@ -356,7 +326,7 @@ namespace CandyShop.Migrations
                             CandyId = 16,
                             CandyCategoryId = 3,
                             CandyDescription = "Chewy candies With banana flavor",
-                            CandyImage = "candy16",
+                            CandyImage = "Karamell5.jpg",
                             CandyName = "Gummi banana",
                             CandyPrice = 5.0,
                             CandyQuantity = 60
@@ -366,7 +336,7 @@ namespace CandyShop.Migrations
                             CandyId = 17,
                             CandyCategoryId = 4,
                             CandyDescription = "Licorice is a semi-soft candy",
-                            CandyImage = "candy17",
+                            CandyImage = "Klubba1.jpg",
                             CandyName = "Red Vines",
                             CandyPrice = 20.0,
                             CandyQuantity = 50
@@ -376,7 +346,7 @@ namespace CandyShop.Migrations
                             CandyId = 18,
                             CandyCategoryId = 4,
                             CandyDescription = "Licorice is a semi-soft candy with cherry flavor",
-                            CandyImage = "candy18",
+                            CandyImage = "Klubba2.jpg",
                             CandyName = "Twizzler",
                             CandyPrice = 20.0,
                             CandyQuantity = 50
@@ -386,7 +356,7 @@ namespace CandyShop.Migrations
                             CandyId = 19,
                             CandyCategoryId = 4,
                             CandyDescription = "A hard sweet candy",
-                            CandyImage = "candy19",
+                            CandyImage = "Klubba3.jpg",
                             CandyName = "Chupa Chups",
                             CandyPrice = 15.0,
                             CandyQuantity = 40
@@ -396,7 +366,7 @@ namespace CandyShop.Migrations
                             CandyId = 20,
                             CandyCategoryId = 4,
                             CandyDescription = "A sour candy",
-                            CandyImage = "candy20",
+                            CandyImage = "Klubba4.jpg",
                             CandyName = "Sour Punch",
                             CandyPrice = 13.0,
                             CandyQuantity = 30
@@ -406,7 +376,7 @@ namespace CandyShop.Migrations
                             CandyId = 21,
                             CandyCategoryId = 4,
                             CandyDescription = "A sour candy",
-                            CandyImage = "candy21",
+                            CandyImage = "Klubba5.jpg",
                             CandyName = "Warheads",
                             CandyPrice = 15.0,
                             CandyQuantity = 40
@@ -416,7 +386,7 @@ namespace CandyShop.Migrations
                             CandyId = 22,
                             CandyCategoryId = 4,
                             CandyDescription = "Chewy sweet candy",
-                            CandyImage = "candy22",
+                            CandyImage = "Klubba6.jpg",
                             CandyName = "Abba-Zaba",
                             CandyPrice = 10.0,
                             CandyQuantity = 70
@@ -426,7 +396,7 @@ namespace CandyShop.Migrations
                             CandyId = 23,
                             CandyCategoryId = 4,
                             CandyDescription = "Chewy sweet candy",
-                            CandyImage = "candy23",
+                            CandyImage = "Klubba7.jpg",
                             CandyName = "Sky Bar",
                             CandyPrice = 5.0,
                             CandyQuantity = 60
@@ -436,7 +406,7 @@ namespace CandyShop.Migrations
                             CandyId = 24,
                             CandyCategoryId = 4,
                             CandyDescription = "Chewy with peach flavor candy",
-                            CandyImage = "candy24",
+                            CandyImage = "Klubba8.jpg",
                             CandyName = "Peach Blossoms",
                             CandyPrice = 10.0,
                             CandyQuantity = 50
@@ -466,12 +436,12 @@ namespace CandyShop.Migrations
                         new
                         {
                             CartId = 1,
-                            CustomerCartId = "cc2214ad-755e-4fca-ac3a-60c2f41af185"
+                            CustomerCartId = "b07c4b5a-2c41-4d14-8e07-4def93f5a8d0"
                         },
                         new
                         {
                             CartId = 2,
-                            CustomerCartId = "ae66b829-2bfc-4448-a67f-6f288e569919"
+                            CustomerCartId = "3fd85137-7dcf-4e06-af6d-69241001ff04"
                         });
                 });
 
@@ -498,25 +468,25 @@ namespace CandyShop.Migrations
                         {
                             CategoryId = 1,
                             CategoryImage = "category1",
-                            CategoryName = "Caramels"
+                            CategoryName = "Chocolate"
                         },
                         new
                         {
                             CategoryId = 2,
                             CategoryImage = "category2",
-                            CategoryName = "Chocolate"
+                            CategoryName = "Gummies"
                         },
                         new
                         {
                             CategoryId = 3,
                             CategoryImage = "category3",
-                            CategoryName = "Gummies"
+                            CategoryName = "Hard Candy"
                         },
                         new
                         {
                             CategoryId = 4,
                             CategoryImage = "category4",
-                            CategoryName = "Combination"
+                            CategoryName = "Lollipops"
                         });
                 });
 
@@ -535,10 +505,13 @@ namespace CandyShop.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("CandyPrice")
+                        .HasColumnType("int");
+
                     b.Property<int>("CartId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Price")
+                    b.Property<int?>("OrderId")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
@@ -548,7 +521,34 @@ namespace CandyShop.Migrations
 
                     b.HasIndex("CartId");
 
+                    b.HasIndex("OrderId");
+
                     b.ToTable("ItemOrders");
+                });
+
+            modelBuilder.Entity("CandyShop.Models.Order", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"), 1L, 1);
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TotalAmount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("OrderId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -580,15 +580,15 @@ namespace CandyShop.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6ebb72cc-aa37-4d5d-979d-4e485f0f2403",
-                            ConcurrencyStamp = "6f583152-8427-41c6-b119-e305acea9ab0",
+                            Id = "d34bfacf-4a49-4488-9411-c040a9940c1d",
+                            ConcurrencyStamp = "79fde50f-0c61-4709-a842-24dc44567773",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "67a7d866-71b0-4218-b40c-a5f12ecf658c",
-                            ConcurrencyStamp = "c73d6b64-6eb7-41b3-9870-cfc84bc7e5fc",
+                            Id = "4fe875af-61e8-4f92-a7e8-61815ccbc2dd",
+                            ConcurrencyStamp = "76c1ab32-f6e9-4d65-9822-73b34f84e216",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -685,13 +685,13 @@ namespace CandyShop.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "cc2214ad-755e-4fca-ac3a-60c2f41af185",
-                            RoleId = "6ebb72cc-aa37-4d5d-979d-4e485f0f2403"
+                            UserId = "b07c4b5a-2c41-4d14-8e07-4def93f5a8d0",
+                            RoleId = "d34bfacf-4a49-4488-9411-c040a9940c1d"
                         },
                         new
                         {
-                            UserId = "ae66b829-2bfc-4448-a67f-6f288e569919",
-                            RoleId = "67a7d866-71b0-4218-b40c-a5f12ecf658c"
+                            UserId = "3fd85137-7dcf-4e06-af6d-69241001ff04",
+                            RoleId = "4fe875af-61e8-4f92-a7e8-61815ccbc2dd"
                         });
                 });
 
@@ -744,7 +744,22 @@ namespace CandyShop.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("CandyShop.Models.Order", null)
+                        .WithMany("Items")
+                        .HasForeignKey("OrderId");
+
                     b.Navigation("Cart");
+                });
+
+            modelBuilder.Entity("CandyShop.Models.Order", b =>
+                {
+                    b.HasOne("CandyShop.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany("Orders")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -802,6 +817,8 @@ namespace CandyShop.Migrations
                 {
                     b.Navigation("Cart")
                         .IsRequired();
+
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("CandyShop.Models.Cart", b =>
@@ -812,6 +829,11 @@ namespace CandyShop.Migrations
             modelBuilder.Entity("CandyShop.Models.Category", b =>
                 {
                     b.Navigation("Candies");
+                });
+
+            modelBuilder.Entity("CandyShop.Models.Order", b =>
+                {
+                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }

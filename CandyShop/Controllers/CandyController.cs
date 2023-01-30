@@ -220,7 +220,7 @@ namespace CandyShop.Controllers
                 Candy candy = _context.Candies.Find(item.CandyId);
                 candy.CandyQuantity -= item.Quantity;
                 _context.Candies.Update(candy);
-                totalAmount += item.Price * item.Quantity;
+                totalAmount += item.CandyPrice * item.Quantity;
             }
 
             Order order = new Order { Items = cart.ItemOrders, OrderDate = DateTime.Today, TotalAmount = totalAmount, UserId = id};
@@ -248,6 +248,12 @@ namespace CandyShop.Controllers
            var customer = _context.Customers.Include(o => o.Orders).FirstOrDefault(x => x.Id == id);
 
             return customer.Orders.ToList();
+        }
+
+        [HttpGet("orders")]
+        public List<ItemOrder> ShowOrders()
+        {
+            return _context.ItemOrders.ToList();
         }
 
 

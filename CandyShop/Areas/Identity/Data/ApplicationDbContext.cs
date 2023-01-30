@@ -80,7 +80,7 @@ namespace CandyShop.Areas.Identity.Data
                    CandyDescription = "Caramels are made by cooking sugar and water together",
                    CandyPrice = 5,
                    CandyQuantity = 50,
-                   CandyImage = "candy1"
+                   CandyImage = "Choklad1.jpg"
                },
                 new Candy
                 {
@@ -90,7 +90,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "A tasty Caramel and sugary Crunch",
                     CandyPrice = 15,
                     CandyQuantity = 50,
-                    CandyImage = "candy2"
+                    CandyImage = "Choklad2.png"
                 },
                 new Candy
                 {
@@ -100,7 +100,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "The Vanila taste with the sweet of caramel",
                     CandyPrice = 10,
                     CandyQuantity = 50,
-                    CandyImage = "candy3"
+                    CandyImage = "Choklad3.jpg"
                 },
                 new Candy
                 {
@@ -110,7 +110,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "The Vanilla taste with the sweet of caramel",
                     CandyPrice = 10,
                     CandyQuantity = 50,
-                    CandyImage = "candy4"
+                    CandyImage = "Choklad4.jpg"
                 },
                 new Candy
                 {
@@ -120,7 +120,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Combination of nuts and the sweet of caramel",
                     CandyPrice = 15,
                     CandyQuantity = 40,
-                    CandyImage = "candy5"
+                    CandyImage = "Choklad5.jpg"
                 },
                 new Candy
                 {
@@ -130,7 +130,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Tastey colorful chocolate",
                     CandyPrice = 15,
                     CandyQuantity = 40,
-                    CandyImage = "candy6"
+                    CandyImage = "Gele1.jpg"
                 },
                  new Candy
                  {
@@ -140,7 +140,7 @@ namespace CandyShop.Areas.Identity.Data
                      CandyDescription = "A mini full of flavor chocolate",
                      CandyPrice = 11,
                      CandyQuantity = 45,
-                     CandyImage = "candy7"
+                     CandyImage = "Gele2.jpg"
                  },
                 new Candy
                 {
@@ -150,7 +150,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Combination of Almond and the sweet of chocolate",
                     CandyPrice = 16,
                     CandyQuantity = 40,
-                    CandyImage = "candy8"
+                    CandyImage = "Gele3.jpg"
                 },
                 new Candy
                 {
@@ -160,7 +160,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Combination of Cherries flavor and the sweet of chocolate",
                     CandyPrice = 15,
                     CandyQuantity = 50,
-                    CandyImage = "candy9"
+                    CandyImage = "Gele4.jpg"
                 },
                 new Candy
                 {
@@ -170,7 +170,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Biscute Coverd of chocolate",
                     CandyPrice = 11,
                     CandyQuantity = 50,
-                    CandyImage = "candy10"
+                    CandyImage = "Gele5.jpg"
                 },
                 new Candy
                 {
@@ -180,7 +180,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Combination of nuts and the sweet of chocolate",
                     CandyPrice = 15,
                     CandyQuantity = 40,
-                    CandyImage = "candy11"
+                    CandyImage = "Gele2.jpg"
                 },
                 new Candy
                 {
@@ -190,7 +190,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Gummies are gelatin based chewy candies",
                     CandyPrice = 18,
                     CandyQuantity = 55,
-                    CandyImage = "candy12"
+                    CandyImage = "Karamell1.jpg"
                 },
                  new Candy
                  {
@@ -200,7 +200,7 @@ namespace CandyShop.Areas.Identity.Data
                      CandyDescription = "Chewy candies With different flavors",
                      CandyPrice = 5,
                      CandyQuantity = 60,
-                     CandyImage = "candy13"
+                     CandyImage = "Karamell2.jpg"
                  },
 
                  new Candy
@@ -211,7 +211,7 @@ namespace CandyShop.Areas.Identity.Data
                      CandyDescription = "Chewy candies With cola flavor",
                      CandyPrice = 5,
                      CandyQuantity = 60,
-                     CandyImage = "candy14"
+                     CandyImage = "Karamell3.jpg"
                  },
                 new Candy
                 {
@@ -221,7 +221,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Chewy candies With stawberry flavor",
                     CandyPrice = 5,
                     CandyQuantity = 60,
-                    CandyImage = "candy15"
+                    CandyImage = "Karamell4.jpg"
                 },
                 new Candy
                 {
@@ -231,7 +231,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Chewy candies With banana flavor",
                     CandyPrice = 5,
                     CandyQuantity = 60,
-                    CandyImage = "candy16"
+                    CandyImage = "Karamell5.jpg"
                 },
                 new Candy
                 {
@@ -241,7 +241,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Licorice is a semi-soft candy",
                     CandyPrice = 20,
                     CandyQuantity = 50,
-                    CandyImage = "candy17"
+                    CandyImage = "Klubba1.jpg"
                 },
                  new Candy
                  {
@@ -251,7 +251,7 @@ namespace CandyShop.Areas.Identity.Data
                      CandyDescription = "Licorice is a semi-soft candy with cherry flavor",
                      CandyPrice = 20,
                      CandyQuantity = 50,
-                     CandyImage = "candy18"
+                     CandyImage = "Klubba2.jpg"
                  },
                   new Candy
                   {
@@ -261,7 +261,7 @@ namespace CandyShop.Areas.Identity.Data
                       CandyDescription = "A hard sweet candy",
                       CandyPrice = 15,
                       CandyQuantity = 40,
-                      CandyImage = "candy19"
+                      CandyImage = "Klubba3.jpg"
                   },
                    new Candy
                    {
@@ -271,7 +271,7 @@ namespace CandyShop.Areas.Identity.Data
                        CandyDescription = "A sour candy",
                        CandyPrice = 13,
                        CandyQuantity = 30,
-                       CandyImage = "candy20"
+                       CandyImage = "Klubba4.jpg"
                    },
                   new Candy
                   {
@@ -281,7 +281,7 @@ namespace CandyShop.Areas.Identity.Data
                       CandyDescription = "A sour candy",
                       CandyPrice = 15,
                       CandyQuantity = 40,
-                      CandyImage = "candy21"
+                      CandyImage = "Klubba5.jpg"
                   },
                    new Candy
                    {
@@ -291,7 +291,7 @@ namespace CandyShop.Areas.Identity.Data
                        CandyDescription = "Chewy sweet candy",
                        CandyPrice = 10,
                        CandyQuantity = 70,
-                       CandyImage = "candy22"
+                       CandyImage = "Klubba6.jpg"
                    },
                     new Candy
                     {
@@ -301,7 +301,7 @@ namespace CandyShop.Areas.Identity.Data
                         CandyDescription = "Chewy sweet candy",
                         CandyPrice = 5,
                         CandyQuantity = 60,
-                        CandyImage = "candy23"
+                        CandyImage = "Klubba7.jpg"
                     },
                      new Candy
                      {
@@ -311,7 +311,7 @@ namespace CandyShop.Areas.Identity.Data
                          CandyDescription = "Chewy with peach flavor candy",
                          CandyPrice = 10,
                          CandyQuantity = 50,
-                         CandyImage = "candy24"
+                         CandyImage = "Klubba8.jpg"
                      }
 
                 );
@@ -322,28 +322,28 @@ namespace CandyShop.Areas.Identity.Data
                  new Category
                  {
                      CategoryId = 1,
-                     CategoryName = "Caramels",
+                     CategoryName = "Chocolate",
                      CategoryImage = "category1"
                  },
 
                 new Category
                 {
                     CategoryId = 2,
-                    CategoryName = "Chocolate",
+                    CategoryName = "Gummies",
                     CategoryImage = "category2"
                 },
 
                 new Category
                 {
                     CategoryId = 3,
-                    CategoryName = "Gummies",
+                    CategoryName = "Hard Candy",
                     CategoryImage = "category3"
                 },
 
                  new Category
                  {
                      CategoryId = 4,
-                     CategoryName = "Combination",
+                     CategoryName = "Lollipops",
                      CategoryImage = "category4"
                  }
 
