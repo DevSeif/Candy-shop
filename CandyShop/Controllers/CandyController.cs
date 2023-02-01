@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using System.Diagnostics.Metrics;
+using Newtonsoft.Json.Linq;
 
 namespace CandyShop.Controllers
 {
@@ -52,7 +53,7 @@ namespace CandyShop.Controllers
                 if (result.Succeeded)
                 {
                     await _userManager.AddToRoleAsync(user, "User");
-                    Cart cart = new Cart { CustomerCartId = user.Id};
+                    Cart cart = new Cart { CustomerCartId = user.Id };
                     _context.Carts.Add(cart);
                     _context.SaveChanges();
                     await _signInManager.SignInAsync(user, isPersistent: false);
@@ -165,7 +166,7 @@ namespace CandyShop.Controllers
             if (result.Succeeded)
             {
                 var user = _context.Customers.Include(c => c.Cart).FirstOrDefault(x => x.Email == model.Email);
-                UserVM userVM = new UserVM { CustomerFName = user.CustomerFName, CustomerLName = user.CustomerLName, Email = user.Email, UserId = user.Id, CartId = user.Cart.CartId, IsAdmin = false};
+                UserVM userVM = new UserVM { CustomerFName = user.CustomerFName, CustomerLName = user.CustomerLName, Email = user.Email, UserId = user.Id, CartId = user.Cart.CartId, IsAdmin = false };
                 if (User.IsInRole("Admin")) { userVM.IsAdmin = true; }
 
                 return userVM;
@@ -177,7 +178,7 @@ namespace CandyShop.Controllers
         public string GetUsername()
         {
             var username = _userManager.GetUserName(User);
-            if(username == null || username == "") { return "null"; }
+            if (username == null || username == "") { return "null"; }
             return username;
         }
 
@@ -202,7 +203,7 @@ namespace CandyShop.Controllers
         public async Task<string> GetId()
         {
             var user = await _userManager.GetUserAsync(User);
-        
+
 
             return user.Id;
         }
@@ -232,14 +233,15 @@ namespace CandyShop.Controllers
         //}
 
 
-        [HttpGet("purchase")]
-        public Order Purchase(JsonObject jsonObject)
+        [HttpPost("purchase")]
+        public Order Purchase(PurchaseOrderVM purchaseOrderVM)
         {
+            //string jsonItem = jsonObject.ToString();
+            //PurchaseOrderVM vm = JsonConvert.DeserializeObject<PurchaseOrderVM>(jsonItem);
 
-            string jsonItem = jsonObject.ToString();
-            PurchaseOrderVM vm = JsonConvert.DeserializeObject<PurchaseOrderVM>(jsonItem);
+            //List<ItemOrder> list = jsonObject.ToList<ItemOrder>();
 
-            Order order = new Order { Items = vm.ItemOrders, OrderDate = DateTime.Today, TotalAmount = vm.TotalAmount, UserId = vm.UserId };
+            Order order = new Order { Items = purchaseOrderVM.ItemOrders, OrderDate = DateTime.Today, TotalAmount = 500, UserId = "testar" };
             _context.Orders.Add(order);
             _context.SaveChanges();
 
@@ -257,7 +259,7 @@ namespace CandyShop.Controllers
         [HttpGet("showhistory/{id}")]
         public List<Order> ShowHistory(string id)
         {
-           var customer = _context.Customers.Include(o => o.Orders).FirstOrDefault(x => x.Id == id);
+            var customer = _context.Customers.Include(o => o.Orders).FirstOrDefault(x => x.Id == id);
 
             return customer.Orders.ToList();
         }

@@ -9,7 +9,7 @@ namespace CandyShop.Areas.Identity.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        
+
         public DbSet<ApplicationUser> Customers { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -34,8 +34,8 @@ namespace CandyShop.Areas.Identity.Data
             string customerId = Guid.NewGuid().ToString();
             string customerId2 = Guid.NewGuid().ToString();
 
-           // modelBuilder.Entity<ApplicationUser>().HasKey(p => p.CustomerId);
-           modelBuilder.Entity<Cart>().HasKey(c => c.CartId);
+            // modelBuilder.Entity<ApplicationUser>().HasKey(p => p.CustomerId);
+            modelBuilder.Entity<Cart>().HasKey(c => c.CartId);
 
             modelBuilder.Entity<ApplicationUser>().HasOne(c => c.Cart).WithOne(u => u.Customer).HasForeignKey<Cart>(c => c.CustomerCartId);
             modelBuilder.Entity<ItemOrder>().HasOne(c => c.Cart).WithMany(u => u.ItemOrders).HasForeignKey(c => c.CartId);
@@ -45,29 +45,29 @@ namespace CandyShop.Areas.Identity.Data
 
             modelBuilder.Entity<ApplicationUser>().HasData(
                 new ApplicationUser
-            {
-                Id = customerId,
-                Email = "admin@gmail.com",
-                NormalizedEmail = "ADMIN@GMAIL:COM",
-                UserName = "admin@gmail.com",
-                NormalizedUserName = "admin@gmail.com",
-                PasswordHash = hasher.HashPassword(null, "Abc123!"),
-                CustomerFName = "Admin",
-                CustomerLName = "Adminsson",
-                PhoneNumber = "0737555555",
-            },
+                {
+                    Id = customerId,
+                    Email = "admin@gmail.com",
+                    NormalizedEmail = "ADMIN@GMAIL:COM",
+                    UserName = "admin@gmail.com",
+                    NormalizedUserName = "admin@gmail.com",
+                    PasswordHash = hasher.HashPassword(null, "Abc123!"),
+                    CustomerFName = "Admin",
+                    CustomerLName = "Adminsson",
+                    PhoneNumber = "0737555555",
+                },
 
                 new ApplicationUser
-            {
-                Id = customerId2,
-                Email = "user@gmail.com",
-                NormalizedEmail = "USER@GMAIL:COM",
-                UserName = "user@gmail.com",
-                NormalizedUserName = "user@gmail.com",
-                PasswordHash = hasher.HashPassword(null, "Abc123!"),
-                CustomerFName = "User",
-                CustomerLName = "Usersson",
-                PhoneNumber = "0737555555",
+                {
+                    Id = customerId2,
+                    Email = "user@gmail.com",
+                    NormalizedEmail = "USER@GMAIL:COM",
+                    UserName = "user@gmail.com",
+                    NormalizedUserName = "user@gmail.com",
+                    PasswordHash = hasher.HashPassword(null, "Abc123!"),
+                    CustomerFName = "User",
+                    CustomerLName = "Usersson",
+                    PhoneNumber = "0737555555",
                 }
             );
 
@@ -350,8 +350,8 @@ namespace CandyShop.Areas.Identity.Data
                 );
 
             modelBuilder.Entity<Cart>().HasData(
-                new Cart { CartId = 1, CustomerCartId = customerId},
-                new Cart { CartId = 2, CustomerCartId = customerId2}
+                new Cart { CartId = 1, CustomerCartId = customerId },
+                new Cart { CartId = 2, CustomerCartId = customerId2 }
                 );
 
 

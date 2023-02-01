@@ -84,7 +84,7 @@ namespace CandyShop.Controllers
         [HttpPut("updateuser")]
         public async Task<IActionResult> UpdateUser(UpdateUserVM vm)
         {
-           var customer = await _context.Customers.FindAsync(vm.UserId);
+            var customer = await _context.Customers.FindAsync(vm.UserId);
 
             customer.CustomerFName = vm.CustomerFName;
             customer.CustomerLName = vm.CustomerLName;
@@ -92,7 +92,7 @@ namespace CandyShop.Controllers
 
 
             await _userManager.UpdateAsync(customer);
-           
+
             return StatusCode(200);
         }
 
